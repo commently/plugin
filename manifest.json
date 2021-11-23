@@ -1,0 +1,6 @@
+{
+  "name": "Commently Plugin",
+  "description": "Plugin to communicate through a web page",
+  "version": "0.1",
+  "manifest_version": 3
+}
