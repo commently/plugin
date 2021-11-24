@@ -20,11 +20,16 @@ chrome.runtime.onInstalled.addListener(() => {
 })
 
 chrome.action.onClicked.addListener(tab => {
-  chrome.scripting.executeScript({ target: { tabId: tab.id }, function: setPageBackgroundColor })
+  chrome.scripting.executeScript({ target: { tabId: tab.id }, function: subscribeToPageClicks })
 })
 
-function setPageBackgroundColor() {
-  chrome.storage.sync.get('color', ({ color }) => {
-    document.body.style.backgroundColor = color
-  })
+function subscribeToPageClicks() {
+  /** @todo click fullscreen overlay because stop propagation does not work */
+  
+  /** @todo unsubscribe because every action click adds new subscription */
+  document.body.addEventListener('click', clickListener)
+
+  function clickListener({ x, y }) {
+    console.log(`x: ${x}, y: ${y}`);
+  }
 }
