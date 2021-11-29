@@ -1,4 +1,5 @@
 import React, { FC, HTMLAttributes, ReactChild } from 'react';
+import ReactDOM from 'react-dom'
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** custom content, defaults to 'the snozzberries taste like snozzberries' */
@@ -10,6 +11,20 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 /**
  * A custom Thing component. Neat!
  */
-export const Thing: FC<Props> = ({ children }) => {
+const Thing: FC<Props> = ({ children }) => {
   return <div>{children || `the snozzberries taste like snozzberries`}</div>;
 };
+
+const root = document.createElement('div')
+
+root.id = 'commently-plugin'
+    
+root.style.position = 'fixed'
+root.style.left = '0'
+root.style.top = '0'
+root.style.right = '0'
+root.style.bottom = '0'
+
+document.body.appendChild(root)
+
+ReactDOM.render(<Thing />, root);

@@ -12,7 +12,8 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "move": "rm -rf ../extension/app && mv dist ../extension/app",
+    "build": "tsdx build --format umd --target web && yarn move",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
