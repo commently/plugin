@@ -1,7 +1,7 @@
 {
-  "name": "page-app",
+  "name": "tab-app",
   "version": "1.0.0",
-  "description": "page-app React component",
+  "description": "Commently Tab App",
   "main": "lib/index.js",
   "files": [
     "css",
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "nwb build-react-component && npm run move",
-    "move": "rm -rf ../extension/page-app && mv umd ../extension/page-app",
+    "move": "rm -rf ../extension/tab-app && mv umd ../extension/tab-app",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",

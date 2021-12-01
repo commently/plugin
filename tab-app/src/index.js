@@ -10,15 +10,9 @@ function App() {
 }
 
 const root = document.createElement('div')
-
 root.id = 'commently-plugin'
-    
 root.style.position = 'fixed'
-root.style.left = '0'
-root.style.top = '0'
-root.style.right = '0'
-root.style.bottom = '0'
-
+root.style.inset = '0'
 document.body.appendChild(root)
 
 ReactDom.render(<App />, root);

@@ -21,7 +21,7 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.action.onClicked.addListener(tab => {
   // chrome.scripting.executeScript({ target: { tabId: tab.id }, function: subscribeToPageClicks })
-  chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['page-app/page-app.js'] })
+  chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['tab-app/tab-app.js'] })
 })
 
 // function subscribeToPageClicks() {

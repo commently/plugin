@@ -1,5 +1,5 @@
 /*!
- * page-app v1.0.0
+ * tab-app v1.0.0
  * MIT Licensed
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -268,10 +268,7 @@ function App() {
 var root = document.createElement('div');
 root.id = 'commently-plugin';
 root.style.position = 'fixed';
-root.style.left = '0';
-root.style.top = '0';
-root.style.right = '0';
-root.style.bottom = '0';
+root.style.inset = '0';
 document.body.appendChild(root);
 react_dom__WEBPACK_IMPORTED_MODULE_1__["render"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](App, null), root);
 
