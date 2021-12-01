@@ -1,0 +1,38 @@
+{
+  "name": "page-app",
+  "version": "1.0.0",
+  "description": "page-app React component",
+  "main": "lib/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-react-component && npm run move",
+    "move": "rm -rf ../extension/page-app && mv umd ../extension/page-app",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "prepublishOnly": "npm run build",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "devDependencies": {
+    "nwb": "0.25.x",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "author": "",
+  "homepage": "",
+  "license": "MIT",
+  "repository": "",
+  "keywords": [
+    "react-component"
+  ]
+}
