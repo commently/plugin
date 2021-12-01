@@ -106,7 +106,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 if (true) {
-  module.exports = __webpack_require__(5);
+  module.exports = __webpack_require__(4);
 } else {}
 
 
@@ -237,7 +237,7 @@ if (true) {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(6);
+  module.exports = __webpack_require__(5);
 } else {}
 
 
@@ -245,35 +245,11 @@ if (true) {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(8);
 
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("h2", null, "Welcome to React components"));
-}
-
-var root = document.createElement('div');
-root.id = 'commently-plugin';
-root.style.position = 'fixed';
-root.style.inset = '0';
-document.body.appendChild(root);
-react_dom__WEBPACK_IMPORTED_MODULE_1__["render"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](App, null), root);
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -303,7 +279,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -318,7 +294,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0),m=__webpack_require__(1),r=__webpack_require__(7);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
+var aa=__webpack_require__(0),m=__webpack_require__(1),r=__webpack_require__(6);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
 function ea(a,b){ca[a]=b;for(a=0;a<b.length;a++)ba.add(b[a])}
 var fa=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ha=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,ia=Object.prototype.hasOwnProperty,
 ja={},ka={};function la(a){if(ia.call(ka,a))return!0;if(ia.call(ja,a))return!1;if(ha.test(a))return ka[a]=!0;ja[a]=!0;return!1}function ma(a,b,c,d){if(null!==c&&0===c.type)return!1;switch(typeof b){case "function":case "symbol":return!0;case "boolean":if(d)return!1;if(null!==c)return!c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return"data-"!==a&&"aria-"!==a;default:return!1}}
@@ -607,19 +583,19 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Er
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(8);
+  module.exports = __webpack_require__(7);
 } else {}
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -644,6 +620,101 @@ exports.unstable_next=function(a){switch(P){case 1:case 2:case 3:var b=3;break;d
 exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();"object"===typeof c&&null!==c?(c=c.delay,c="number"===typeof c&&0<c?d+c:d):c=d;switch(a){case 1:var e=-1;break;case 2:e=250;break;case 5:e=1073741823;break;case 4:e=1E4;break;default:e=5E3}e=c+e;a={id:N++,callback:b,priorityLevel:a,startTime:c,expirationTime:e,sortIndex:-1};c>d?(a.sortIndex=c,H(M,a),null===J(L)&&a===J(M)&&(S?h():S=!0,g(U,c-d))):(a.sortIndex=e,H(L,a),R||Q||(R=!0,f(V)));return a};
 exports.unstable_wrapCallback=function(a){var b=P;return function(){var c=P;P=b;try{return a.apply(this,arguments)}finally{P=c}}};
 
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(0);
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/react-dom/index.js
+var react_dom = __webpack_require__(2);
+var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
+
+// CONCATENATED MODULE: ./node_modules/uid/dist/index.mjs
+var IDX=256, HEX=[], SIZE=256, BUFFER;
+while (IDX--) HEX[IDX] = (IDX + 256).toString(16).substring(1);
+
+function uid(len) {
+	var i=0, tmp=(len || 11);
+	if (!BUFFER || ((IDX + tmp) > SIZE*2)) {
+		for (BUFFER='',IDX=0; i < SIZE; i++) {
+			BUFFER += HEX[Math.random() * 256 | 0];
+		}
+	}
+
+	return BUFFER.substring(IDX, IDX++ + tmp);
+}
+
+// CONCATENATED MODULE: ./src/index.js
+
+
+
+
+function App() {
+  var _useState = Object(react["useState"])([]),
+      pins = _useState[0],
+      setPins = _useState[1];
+
+  var handleRootClick = function handleRootClick(_ref) {
+    var clientX = _ref.clientX,
+        clientY = _ref.clientY;
+    setPins(function (prevPins) {
+      return [].concat(prevPins, [{
+        clientX: clientX,
+        clientY: clientY,
+        id: uid()
+      }]);
+    });
+  };
+
+  var handlePinClick = function handlePinClick() {
+    console.log('conversation clicked');
+  };
+
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    onClick: handleRootClick,
+    style: {
+      flexGrow: 1
+    }
+  }, pins.map(function (_ref2) {
+    var clientX = _ref2.clientX,
+        clientY = _ref2.clientY,
+        id = _ref2.id;
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      key: id
+    }, /*#__PURE__*/react_default.a.createElement("button", {
+      onClick: handlePinClick,
+      style: {
+        position: 'absolute',
+        left: clientX + "px",
+        top: clientY + "px",
+        width: '20px',
+        height: '20px',
+        borderRadius: '10px',
+        borderBottomLeftRadius: '0px',
+        backgroundColor: 'green',
+        transform: 'translateY(-20px)',
+        zIndex: '1',
+        boxShadow: '0 5px 10px rgba(0, 0, 0, 0.1)'
+      }
+    }));
+  }));
+}
+
+var root = document.createElement('div');
+root.id = 'commently';
+root.style.position = 'fixed';
+root.style.inset = '0';
+root.style.display = 'flex';
+document.body.appendChild(root);
+react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(App, null), root);
 
 /***/ })
 /******/ ])["default"];
