@@ -21,5 +21,13 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.action.onClicked.addListener(tab => {
   /** @todo remove tab app on next click  */
-  chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['tab-app/tab-app.js'] })
+  chrome.scripting.insertCSS({
+    target: { tabId: tab.id },
+    files: ['tab-app/main.css']
+  })
+
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    files: ['tab-app/tab-app.js']
+  })
 })

@@ -95,7 +95,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -106,7 +106,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 if (true) {
-  module.exports = __webpack_require__(4);
+  module.exports = __webpack_require__(6);
 } else {}
 
 
@@ -237,7 +237,7 @@ if (true) {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(5);
+  module.exports = __webpack_require__(7);
 } else {}
 
 
@@ -245,11 +245,25 @@ if (true) {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(8);
-
+// extracted by mini-css-extract-plugin
+module.exports = {"root":"App-root-3-5HS"};
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"root":"Pin-root-2qbDs"};
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(10);
+
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -279,7 +293,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -294,7 +308,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0),m=__webpack_require__(1),r=__webpack_require__(6);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
+var aa=__webpack_require__(0),m=__webpack_require__(1),r=__webpack_require__(8);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
 function ea(a,b){ca[a]=b;for(a=0;a<b.length;a++)ba.add(b[a])}
 var fa=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ha=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,ia=Object.prototype.hasOwnProperty,
 ja={},ka={};function la(a){if(ia.call(ka,a))return!0;if(ia.call(ja,a))return!1;if(ha.test(a))return ka[a]=!0;ja[a]=!0;return!1}function ma(a,b,c,d){if(null!==c&&0===c.type)return!1;switch(typeof b){case "function":case "symbol":return!0;case "boolean":if(d)return!1;if(null!==c)return!c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return"data-"!==a&&"aria-"!==a;default:return!1}}
@@ -583,19 +597,19 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Er
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(7);
+  module.exports = __webpack_require__(9);
 } else {}
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -622,7 +636,7 @@ exports.unstable_wrapCallback=function(a){var b=P;return function(){var c=P;P=b;
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -652,12 +666,42 @@ function uid(len) {
 	return BUFFER.substring(IDX, IDX++ + tmp);
 }
 
-// CONCATENATED MODULE: ./src/index.js
+// EXTERNAL MODULE: ./src/App.css
+var App = __webpack_require__(3);
+
+// EXTERNAL MODULE: ./src/Pin.css
+var Pin = __webpack_require__(4);
+
+// CONCATENATED MODULE: ./src/Pin.js
+
+
+
+function Pin_Pin(_ref) {
+  var clientX = _ref.clientX,
+      clientY = _ref.clientY;
+
+  var handlePinClick = function handlePinClick() {
+    console.log('conversation clicked');
+  };
+
+  return /*#__PURE__*/react_default.a.createElement("button", {
+    className: Pin["root"],
+    style: {
+      left: clientX + "px",
+      top: clientY + "px"
+    },
+    onClick: handlePinClick
+  });
+}
+
+/* harmony default export */ var src_Pin = (Pin_Pin);
+// CONCATENATED MODULE: ./src/App.js
 
 
 
 
-function App() {
+
+function App_App() {
   var _useState = Object(react["useState"])([]),
       pins = _useState[0],
       setPins = _useState[1];
@@ -674,12 +718,9 @@ function App() {
     });
   };
 
-  var handlePinClick = function handlePinClick() {
-    console.log('conversation clicked');
-  };
-
   return /*#__PURE__*/react_default.a.createElement("div", {
     onClick: handleRootClick,
+    className: App["root"],
     style: {
       flexGrow: 1
     }
@@ -689,24 +730,17 @@ function App() {
         id = _ref2.id;
     return /*#__PURE__*/react_default.a.createElement("div", {
       key: id
-    }, /*#__PURE__*/react_default.a.createElement("button", {
-      onClick: handlePinClick,
-      style: {
-        position: 'absolute',
-        left: clientX + "px",
-        top: clientY + "px",
-        width: '20px',
-        height: '20px',
-        borderRadius: '10px',
-        borderBottomLeftRadius: '0px',
-        backgroundColor: 'green',
-        transform: 'translateY(-20px)',
-        zIndex: '1',
-        boxShadow: '0 5px 10px rgba(0, 0, 0, 0.1)'
-      }
+    }, /*#__PURE__*/react_default.a.createElement(src_Pin, {
+      clientX: clientX,
+      clientY: clientY
     }));
   }));
 }
+
+/* harmony default export */ var src_App = (App_App);
+// CONCATENATED MODULE: ./src/index.js
+
+
 
 var root = document.createElement('div');
 root.id = 'commently';
@@ -714,7 +748,7 @@ root.style.position = 'fixed';
 root.style.inset = '0';
 root.style.display = 'flex';
 document.body.appendChild(root);
-react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(App, null), root);
+react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(src_App, null), root);
 
 /***/ })
 /******/ ])["default"];
