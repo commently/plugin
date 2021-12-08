@@ -1,3 +1,4 @@
+import React from 'react'
 import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'
 import { root, inputField, buttonsRow, button_default, button_primary, button_secondary } from './Panel.module.css'
