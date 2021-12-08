@@ -1,4 +1,6 @@
 .root {
+  position: absolute;
+  z-index: 1;
   border: none;
   border-radius: 8px;
   background-color: #FBFFFB;

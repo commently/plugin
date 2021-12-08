@@ -1,5 +1,6 @@
 .root {
   position: absolute;
+  z-index: 1;
   width: 20px;
   height: 20px;
   border: none;
@@ -7,7 +8,6 @@
   border-bottom-left-radius: 0px;
   background-color: #39D353;
   transform: translateY(-20px);
-  z-index: 1;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }

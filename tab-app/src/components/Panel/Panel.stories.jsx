@@ -6,4 +6,4 @@ export default { component: Panel };
 const Template = (args) => <Panel {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = { clientX: 50, clientY: 50 };

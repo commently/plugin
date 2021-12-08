@@ -16,7 +16,7 @@ function App() {
       {pins.map(({ clientX, clientY, id }) => (
         <div key={id}>
           <Pin clientX={clientX} clientY={clientY} />
-          <Panel />
+          <Panel clientX={clientX} clientY={clientY + 8} />
         </div>
       ))}
     </div>
