@@ -1,5 +1,5 @@
 import React from 'react'
-import { root } from './Pin.css'
+import { root } from './Pin.module.css'
 
 function Pin({ clientX, clientY }) {
   const handlePinClick = () => {
