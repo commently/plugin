@@ -1,0 +1,15 @@
+.root {
+  border: none;
+  border-radius: 8px;
+  background-color: #FBFFFB;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  max-width: 270px;
+  display: flex;
+}
+.inputField {
+  border: none;
+  background: transparent;
+  resize: none;
+  flex-grow: 1;
+}
