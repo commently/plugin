@@ -12,4 +12,5 @@
   background: transparent;
   resize: none;
   flex-grow: 1;
+  outline: none;
 }
