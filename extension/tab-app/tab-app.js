@@ -95,7 +95,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -106,12 +106,82 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 if (true) {
-  module.exports = __webpack_require__(6);
+  module.exports = __webpack_require__(8);
 } else {}
 
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"root":"Panel-module-root-1zOz2","inputField":"Panel-module-inputField-38tuT","buttonsRow":"Panel-module-buttonsRow-BsERG","button_default":"Panel-module-button_default-1wBOV","button_primary":"Panel-module-button_primary-E6CJB","button_secondary":"Panel-module-button_secondary-3pdfE"};
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2018 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames() {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				if (arg.length) {
+					var inner = classNames.apply(null, arg);
+					if (inner) {
+						classes.push(inner);
+					}
+				}
+			} else if (argType === 'object') {
+				if (arg.toString === Object.prototype.toString) {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				} else {
+					classes.push(arg.toString());
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( true && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}());
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -208,7 +278,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -237,33 +307,33 @@ if (true) {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(7);
+  module.exports = __webpack_require__(9);
 } else {}
 
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"root":"App-root-3-5HS"};
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"root":"Pin-root-2qbDs"};
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(10);
-
+// extracted by mini-css-extract-plugin
+module.exports = {"root":"App-root-3neFT"};
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"root":"Pin-module-root-1iG2G"};
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(12);
+
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -275,7 +345,7 @@ module.exports = __webpack_require__(10);
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var l=__webpack_require__(1),n=60103,p=60106;exports.Fragment=60107;exports.StrictMode=60108;exports.Profiler=60114;var q=60109,r=60110,t=60112;exports.Suspense=60113;var u=60115,v=60116;
+var l=__webpack_require__(3),n=60103,p=60106;exports.Fragment=60107;exports.StrictMode=60108;exports.Profiler=60114;var q=60109,r=60110,t=60112;exports.Suspense=60113;var u=60115,v=60116;
 if("function"===typeof Symbol&&Symbol.for){var w=Symbol.for;n=w("react.element");p=w("react.portal");exports.Fragment=w("react.fragment");exports.StrictMode=w("react.strict_mode");exports.Profiler=w("react.profiler");q=w("react.provider");r=w("react.context");t=w("react.forward_ref");exports.Suspense=w("react.suspense");u=w("react.memo");v=w("react.lazy")}var x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){if(null===a||"object"!==typeof a)return null;a=x&&a[x]||a["@@iterator"];return"function"===typeof a?a:null}function z(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}
 var A={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}},B={};function C(a,b,c){this.props=a;this.context=b;this.refs=B;this.updater=c||A}C.prototype.isReactComponent={};C.prototype.setState=function(a,b){if("object"!==typeof a&&"function"!==typeof a&&null!=a)throw Error(z(85));this.updater.enqueueSetState(this,a,b,"setState")};C.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
@@ -293,7 +363,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -308,7 +378,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0),m=__webpack_require__(1),r=__webpack_require__(8);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
+var aa=__webpack_require__(0),m=__webpack_require__(3),r=__webpack_require__(10);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
 function ea(a,b){ca[a]=b;for(a=0;a<b.length;a++)ba.add(b[a])}
 var fa=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ha=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,ia=Object.prototype.hasOwnProperty,
 ja={},ka={};function la(a){if(ia.call(ka,a))return!0;if(ia.call(ja,a))return!1;if(ha.test(a))return ka[a]=!0;ja[a]=!0;return!1}function ma(a,b,c,d){if(null!==c&&0===c.type)return!1;switch(typeof b){case "function":case "symbol":return!0;case "boolean":if(d)return!1;if(null!==c)return!c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return"data-"!==a&&"aria-"!==a;default:return!1}}
@@ -597,19 +667,19 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Er
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(9);
+  module.exports = __webpack_require__(11);
 } else {}
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -636,7 +706,7 @@ exports.unstable_wrapCallback=function(a){var b=P;return function(){var c=P;P=b;
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -648,7 +718,7 @@ var react = __webpack_require__(0);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 // EXTERNAL MODULE: ./node_modules/react-dom/index.js
-var react_dom = __webpack_require__(2);
+var react_dom = __webpack_require__(4);
 var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
 
 // CONCATENATED MODULE: ./node_modules/uid/dist/index.mjs
@@ -666,26 +736,27 @@ function uid(len) {
 	return BUFFER.substring(IDX, IDX++ + tmp);
 }
 
-// EXTERNAL MODULE: ./src/App.css
-var App = __webpack_require__(3);
+// EXTERNAL MODULE: ./src/components/App/App.css
+var App = __webpack_require__(5);
 
-// EXTERNAL MODULE: ./src/Pin.css
-var Pin = __webpack_require__(4);
+// EXTERNAL MODULE: ./src/components/Pin/Pin.module.css
+var Pin_module = __webpack_require__(6);
 
-// CONCATENATED MODULE: ./src/Pin.js
+// CONCATENATED MODULE: ./src/components/Pin/Pin.js
 
 
 
-function Pin_Pin(_ref) {
+function Pin(_ref) {
   var clientX = _ref.clientX,
       clientY = _ref.clientY;
 
-  var handlePinClick = function handlePinClick() {
+  var handlePinClick = function handlePinClick(event) {
+    event.stopPropagation();
     console.log('conversation clicked');
   };
 
   return /*#__PURE__*/react_default.a.createElement("button", {
-    className: Pin["root"],
+    className: Pin_module["root"],
     style: {
       left: clientX + "px",
       top: clientY + "px"
@@ -694,8 +765,348 @@ function Pin_Pin(_ref) {
   });
 }
 
-/* harmony default export */ var src_Pin = (Pin_Pin);
-// CONCATENATED MODULE: ./src/App.js
+/* harmony default export */ var Pin_Pin = (Pin);
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__(2);
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+// CONCATENATED MODULE: ./node_modules/use-isomorphic-layout-effect/dist/use-isomorphic-layout-effect.browser.esm.js
+
+
+var index =  react["useLayoutEffect"] ;
+
+/* harmony default export */ var use_isomorphic_layout_effect_browser_esm = (index);
+
+// CONCATENATED MODULE: ./node_modules/use-latest/dist/use-latest.esm.js
+
+
+
+var use_latest_esm_useLatest = function useLatest(value) {
+  var ref = Object(react["useRef"])(value);
+  use_isomorphic_layout_effect_browser_esm(function () {
+    ref.current = value;
+  });
+  return ref;
+};
+
+/* harmony default export */ var use_latest_esm = (use_latest_esm_useLatest);
+
+// CONCATENATED MODULE: ./node_modules/use-composed-ref/dist/use-composed-ref.esm.js
+
+
+var updateRef = function updateRef(ref, value) {
+  if (typeof ref === 'function') {
+    ref(value);
+    return;
+  }
+  ref.current = value;
+};
+
+var use_composed_ref_esm_useComposedRef = function useComposedRef(libRef, userRef) {
+  var prevUserRef = Object(react["useRef"])();
+  return Object(react["useCallback"])(function (instance) {
+    libRef.current = instance;
+
+    if (prevUserRef.current) {
+      updateRef(prevUserRef.current, null);
+    }
+
+    prevUserRef.current = userRef;
+
+    if (!userRef) {
+      return;
+    }
+
+    updateRef(userRef, instance);
+  }, [userRef]);
+};
+
+/* harmony default export */ var use_composed_ref_esm = (use_composed_ref_esm_useComposedRef);
+
+// CONCATENATED MODULE: ./node_modules/react-textarea-autosize/dist/react-textarea-autosize.browser.esm.js
+
+
+
+
+
+
+var HIDDEN_TEXTAREA_STYLE = {
+  'min-height': '0',
+  'max-height': 'none',
+  height: '0',
+  visibility: 'hidden',
+  overflow: 'hidden',
+  position: 'absolute',
+  'z-index': '-1000',
+  top: '0',
+  right: '0'
+};
+
+var forceHiddenStyles = function forceHiddenStyles(node) {
+  Object.keys(HIDDEN_TEXTAREA_STYLE).forEach(function (key) {
+    node.style.setProperty(key, HIDDEN_TEXTAREA_STYLE[key], 'important');
+  });
+};
+
+//   export type CalculatedNodeHeights = [height: number, rowHeight: number];
+// https://github.com/microsoft/TypeScript/issues/28259
+
+var hiddenTextarea = null;
+
+var getHeight = function getHeight(node, sizingData) {
+  var height = node.scrollHeight;
+
+  if (sizingData.sizingStyle.boxSizing === 'border-box') {
+    // border-box: add border, since height = content + padding + border
+    return height + sizingData.borderSize;
+  } // remove padding, since height = content
+
+
+  return height - sizingData.paddingSize;
+};
+
+function calculateNodeHeight(sizingData, value, minRows, maxRows) {
+  if (minRows === void 0) {
+    minRows = 1;
+  }
+
+  if (maxRows === void 0) {
+    maxRows = Infinity;
+  }
+
+  if (!hiddenTextarea) {
+    hiddenTextarea = document.createElement('textarea');
+    hiddenTextarea.setAttribute('tabindex', '-1');
+    hiddenTextarea.setAttribute('aria-hidden', 'true');
+    forceHiddenStyles(hiddenTextarea);
+  }
+
+  if (hiddenTextarea.parentNode === null) {
+    document.body.appendChild(hiddenTextarea);
+  }
+
+  var paddingSize = sizingData.paddingSize,
+      borderSize = sizingData.borderSize,
+      sizingStyle = sizingData.sizingStyle;
+  var boxSizing = sizingStyle.boxSizing;
+  Object.keys(sizingStyle).forEach(function (_key) {
+    var key = _key;
+    hiddenTextarea.style[key] = sizingStyle[key];
+  });
+  forceHiddenStyles(hiddenTextarea);
+  hiddenTextarea.value = value;
+  var height = getHeight(hiddenTextarea, sizingData); // measure height of a textarea with a single row
+
+  hiddenTextarea.value = 'x';
+  var rowHeight = hiddenTextarea.scrollHeight - paddingSize;
+  var minHeight = rowHeight * minRows;
+
+  if (boxSizing === 'border-box') {
+    minHeight = minHeight + paddingSize + borderSize;
+  }
+
+  height = Math.max(minHeight, height);
+  var maxHeight = rowHeight * maxRows;
+
+  if (boxSizing === 'border-box') {
+    maxHeight = maxHeight + paddingSize + borderSize;
+  }
+
+  height = Math.min(maxHeight, height);
+  return [height, rowHeight];
+}
+
+var noop = function noop() {};
+var pick = function pick(props, obj) {
+  return props.reduce(function (acc, prop) {
+    acc[prop] = obj[prop];
+    return acc;
+  }, {});
+};
+
+var SIZING_STYLE = ['borderBottomWidth', 'borderLeftWidth', 'borderRightWidth', 'borderTopWidth', 'boxSizing', 'fontFamily', 'fontSize', 'fontStyle', 'fontWeight', 'letterSpacing', 'lineHeight', 'paddingBottom', 'paddingLeft', 'paddingRight', 'paddingTop', // non-standard
+'tabSize', 'textIndent', // non-standard
+'textRendering', 'textTransform', 'width', 'wordBreak'];
+var isIE = !!document.documentElement.currentStyle ;
+
+var getSizingData = function getSizingData(node) {
+  var style = window.getComputedStyle(node);
+
+  if (style === null) {
+    return null;
+  }
+
+  var sizingStyle = pick(SIZING_STYLE, style);
+  var boxSizing = sizingStyle.boxSizing; // probably node is detached from DOM, can't read computed dimensions
+
+  if (boxSizing === '') {
+    return null;
+  } // IE (Edge has already correct behaviour) returns content width as computed width
+  // so we need to add manually padding and border widths
+
+
+  if (isIE && boxSizing === 'border-box') {
+    sizingStyle.width = parseFloat(sizingStyle.width) + parseFloat(sizingStyle.borderRightWidth) + parseFloat(sizingStyle.borderLeftWidth) + parseFloat(sizingStyle.paddingRight) + parseFloat(sizingStyle.paddingLeft) + 'px';
+  }
+
+  var paddingSize = parseFloat(sizingStyle.paddingBottom) + parseFloat(sizingStyle.paddingTop);
+  var borderSize = parseFloat(sizingStyle.borderBottomWidth) + parseFloat(sizingStyle.borderTopWidth);
+  return {
+    sizingStyle: sizingStyle,
+    paddingSize: paddingSize,
+    borderSize: borderSize
+  };
+};
+
+var react_textarea_autosize_browser_esm_useWindowResizeListener = function useWindowResizeListener(listener) {
+  var latestListener = use_latest_esm(listener);
+  Object(react["useLayoutEffect"])(function () {
+    var handler = function handler(event) {
+      latestListener.current(event);
+    };
+
+    window.addEventListener('resize', handler);
+    return function () {
+      window.removeEventListener('resize', handler);
+    };
+  }, []);
+};
+
+var react_textarea_autosize_browser_esm_TextareaAutosize = function TextareaAutosize(_ref, userRef) {
+  var cacheMeasurements = _ref.cacheMeasurements,
+      maxRows = _ref.maxRows,
+      minRows = _ref.minRows,
+      _ref$onChange = _ref.onChange,
+      onChange = _ref$onChange === void 0 ? noop : _ref$onChange,
+      _ref$onHeightChange = _ref.onHeightChange,
+      onHeightChange = _ref$onHeightChange === void 0 ? noop : _ref$onHeightChange,
+      props = _objectWithoutPropertiesLoose(_ref, ["cacheMeasurements", "maxRows", "minRows", "onChange", "onHeightChange"]);
+
+  if (false) {}
+
+  var isControlled = props.value !== undefined;
+  var libRef = Object(react["useRef"])(null);
+  var ref = use_composed_ref_esm(libRef, userRef);
+  var heightRef = Object(react["useRef"])(0);
+  var measurementsCacheRef = Object(react["useRef"])();
+
+  var resizeTextarea = function resizeTextarea() {
+    var node = libRef.current;
+    var nodeSizingData = cacheMeasurements && measurementsCacheRef.current ? measurementsCacheRef.current : getSizingData(node);
+
+    if (!nodeSizingData) {
+      return;
+    }
+
+    measurementsCacheRef.current = nodeSizingData;
+
+    var _calculateNodeHeight = calculateNodeHeight(nodeSizingData, node.value || node.placeholder || 'x', minRows, maxRows),
+        height = _calculateNodeHeight[0],
+        rowHeight = _calculateNodeHeight[1];
+
+    if (heightRef.current !== height) {
+      heightRef.current = height;
+      node.style.setProperty('height', height + "px", 'important');
+      onHeightChange(height, {
+        rowHeight: rowHeight
+      });
+    }
+  };
+
+  var handleChange = function handleChange(event) {
+    if (!isControlled) {
+      resizeTextarea();
+    }
+
+    onChange(event);
+  };
+
+  {
+    Object(react["useLayoutEffect"])(resizeTextarea);
+    react_textarea_autosize_browser_esm_useWindowResizeListener(resizeTextarea);
+  }
+
+  return /*#__PURE__*/Object(react["createElement"])("textarea", _extends({}, props, {
+    onChange: handleChange,
+    ref: ref
+  }));
+};
+
+var react_textarea_autosize_browser_esm_index = /* #__PURE__ */Object(react["forwardRef"])(react_textarea_autosize_browser_esm_TextareaAutosize);
+
+/* harmony default export */ var react_textarea_autosize_browser_esm = (react_textarea_autosize_browser_esm_index);
+
+// EXTERNAL MODULE: ./src/components/Panel/Panel.module.css
+var Panel_module = __webpack_require__(1);
+
+// CONCATENATED MODULE: ./src/components/Panel/Panel.js
+
+
+
+
+
+function Panel(_ref) {
+  var clientX = _ref.clientX,
+      clientY = _ref.clientY;
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    className: Panel_module["root"],
+    style: {
+      left: clientX + "px",
+      top: clientY + "px"
+    },
+    onClick: function onClick(event) {
+      return event.stopPropagation();
+    }
+  }, /*#__PURE__*/react_default.a.createElement(react_textarea_autosize_browser_esm, {
+    className: Panel_module["inputField"],
+    placeholder: "Add a comment",
+    cacheMeasurements: true,
+    maxRows: 10
+  }), /*#__PURE__*/react_default.a.createElement("div", {
+    className: Panel_module["buttonsRow"]
+  }, /*#__PURE__*/react_default.a.createElement("button", {
+    className: classnames_default()(Panel_module["button_default"], Panel_module["button_secondary"])
+  }, "Cancel"), /*#__PURE__*/react_default.a.createElement("button", {
+    className: classnames_default()(Panel_module["button_default"], Panel_module["button_primary"])
+  }, "Post")));
+}
+
+/* harmony default export */ var Panel_Panel = (Panel);
+// CONCATENATED MODULE: ./src/components/App/App.js
+
 
 
 
@@ -720,35 +1131,32 @@ function App_App() {
 
   return /*#__PURE__*/react_default.a.createElement("div", {
     onClick: handleRootClick,
-    className: App["root"],
-    style: {
-      flexGrow: 1
-    }
+    className: App["root"]
   }, pins.map(function (_ref2) {
     var clientX = _ref2.clientX,
         clientY = _ref2.clientY,
         id = _ref2.id;
     return /*#__PURE__*/react_default.a.createElement("div", {
       key: id
-    }, /*#__PURE__*/react_default.a.createElement(src_Pin, {
+    }, /*#__PURE__*/react_default.a.createElement(Pin_Pin, {
       clientX: clientX,
       clientY: clientY
+    }), /*#__PURE__*/react_default.a.createElement(Panel_Panel, {
+      clientX: clientX,
+      clientY: clientY + 8
     }));
   }));
 }
 
-/* harmony default export */ var src_App = (App_App);
+/* harmony default export */ var components_App_App = (App_App);
 // CONCATENATED MODULE: ./src/index.js
 
 
 
 var root = document.createElement('div');
 root.id = 'commently';
-root.style.position = 'fixed';
-root.style.inset = '0';
-root.style.display = 'flex';
 document.body.appendChild(root);
-react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(src_App, null), root);
+react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(components_App_App, null), root);
 
 /***/ })
 /******/ ])["default"];
