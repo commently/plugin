@@ -38,7 +38,7 @@ function App() {
       {pins.map(({ clientX, clientY, id, comments, isOpen }) => (
         <div key={id}>
           <Pin clientX={clientX} clientY={clientY} isActive={isOpen} />
-          <Panel clientX={clientX} clientY={clientY + 8} comments={comments} onPost={handlePanelPost(id)} />
+          {isOpen && <Panel clientX={clientX} clientY={clientY + 8} comments={comments} onPost={handlePanelPost(id)} />}
         </div>
       ))}
     </div>
