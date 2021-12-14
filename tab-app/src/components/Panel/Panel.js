@@ -1,20 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'
 import { root, inputField, buttonsRow, button_default, button_primary, button_secondary } from './Panel.module.css'
 
-function Panel({ clientX, clientY }) {
+function Panel({ clientX, clientY, comments, onPost }) {
+  const [commentText, setCommentText] = useState('')
+
+  const handlePostClick = () => {
+    onPost(commentText)
+    setCommentText('')
+  }
+
   return (
     <div
       className={root}
       style={{ left: `${clientX}px`, top: `${clientY}px` }}
       onClick={event => event.stopPropagation()}
     >
-      <TextareaAutosize className={inputField} placeholder="Add a comment" cacheMeasurements maxRows={10} />
+      {comments.map(({ id, text }) => <div key={id}>{text}</div>)}
+
+      <TextareaAutosize
+        className={inputField}
+        placeholder="Add a comment"
+        cacheMeasurements
+        maxRows={10}
+        value={commentText}
+        onChange={event => setCommentText(event.target.value)}
+      />
 
       <div className={buttonsRow}>
         <button className={classNames(button_default, button_secondary)}>Cancel</button>  
-        <button className={classNames(button_default, button_primary)}>Post</button>  
+        <button className={classNames(button_default, button_primary)} onClick={handlePostClick}>Post</button>  
       </div>
     </div>
   )
