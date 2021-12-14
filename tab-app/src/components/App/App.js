@@ -10,7 +10,11 @@ function App() {
 
   const handleRootClick = ({ clientX, clientY }) => {
     setPins(prevPins => produce(prevPins, draftPins => {
-      draftPins.push({ clientX, clientY, id: uid(), comments: [] })
+      for (const draftPin of draftPins) {
+        draftPin.isOpen = false
+      }
+
+      draftPins.push({ clientX, clientY, id: uid(), comments: [], isOpen: true })
     }))
   }
 
@@ -31,9 +35,9 @@ function App() {
   
   return (
     <div onClick={handleRootClick} className={root}>
-      {pins.map(({ clientX, clientY, id, comments }) => (
+      {pins.map(({ clientX, clientY, id, comments, isOpen }) => (
         <div key={id}>
-          <Pin clientX={clientX} clientY={clientY} />
+          <Pin clientX={clientX} clientY={clientY} isActive={isOpen} />
           <Panel clientX={clientX} clientY={clientY + 8} comments={comments} onPost={handlePanelPost(id)} />
         </div>
       ))}
