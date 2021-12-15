@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { uid } from 'uid'
-import { root } from './App.css'
+import { root, root_active } from './App.css'
 import Pin from '../Pin/Pin'
 import Panel from '../Panel/Panel'
 import produce from 'immer'
+import classNames from 'classnames'
 
 function closeAllPins(pins) {
   for (const draftPin of pins) {
@@ -30,6 +31,11 @@ function App() {
 
   const handleRootClick = ({ clientX, clientY }) => {
     updatePins(draftPins => {
+      if (draftPins.some(p => p.isOpen)) {
+        closeAllPins(draftPins)
+        return
+      }
+
       closeAllPins(draftPins)
       draftPins.push({ clientX, clientY, id: uid(), comments: [], isOpen: true })
     })
@@ -55,7 +61,7 @@ function App() {
   }
   
   return (
-    <div onClick={handleRootClick} className={root}>
+    <div onClick={handleRootClick} className={classNames(root, { [root_active]: !pins.some(p => p.isOpen) })}>
       {pins.map(({ clientX, clientY, id, comments, isOpen }) => (
         <div key={id}>
           <Pin clientX={clientX} clientY={clientY} isActive={isOpen} onClick={handlePinClick(id)} />
