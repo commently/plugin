@@ -37,7 +37,7 @@ function App() {
       }
 
       closeAllPins(draftPins)
-      draftPins.push({ clientX, clientY, id: uid(), comments: [], isOpen: true })
+      draftPins.push({ clientX, clientY, id: draftPins.length + 1, comments: [], isOpen: true })
     })
   }
 
@@ -50,7 +50,8 @@ function App() {
 
   const handlePanelPost = pinId => commentText => {
     updatePins(draftPins => {
-      findPinById(draftPins, pinId).comments.push({ id: uid(), text: commentText })
+      const { comments } = findPinById(draftPins, pinId)
+      comments.push({ id: comments.length + 1, text: commentText })
     })
   }
 
@@ -64,7 +65,7 @@ function App() {
     <div onClick={handleRootClick} className={classNames(root, { [root_active]: !pins.some(p => p.isOpen) })}>
       {pins.map(({ clientX, clientY, id, comments, isOpen }) => (
         <div key={id}>
-          <Pin clientX={clientX} clientY={clientY} isActive={isOpen} onClick={handlePinClick(id)} />
+          <Pin clientX={clientX} clientY={clientY} isActive={isOpen} text={id} onClick={handlePinClick(id)} />
 
           {isOpen && (
             <Panel
