@@ -3,8 +3,12 @@ import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'
 import { root, inputField, buttonsRow, button_default, button_primary, button_secondary } from './Panel.module.css'
 
-function Panel({ clientX, clientY, comments, onPost }) {
+function Panel({ clientX, clientY, comments, onPost, onCancel }) {
   const [commentText, setCommentText] = useState('')
+
+  const handleCancelClick = () => {
+    onCancel()
+  }
 
   const handlePostClick = () => {
     onPost(commentText)
@@ -29,7 +33,7 @@ function Panel({ clientX, clientY, comments, onPost }) {
       />
 
       <div className={buttonsRow}>
-        <button className={classNames(button_default, button_secondary)}>Cancel</button>  
+        <button className={classNames(button_default, button_secondary)} onClick={handleCancelClick}>Cancel</button>  
         <button className={classNames(button_default, button_primary)} onClick={handlePostClick}>Post</button>  
       </div>
     </div>

@@ -24,24 +24,34 @@ function findPinById(pins, pinId) {
 function App() {
   const [pins, setPins] = useState([])
 
+  function updatePins(recipe) {
+    setPins(prevPins => produce(prevPins, recipe))
+  }
+
   const handleRootClick = ({ clientX, clientY }) => {
-    setPins(prevPins => produce(prevPins, draftPins => {
+    updatePins(draftPins => {
       closeAllPins(draftPins)
       draftPins.push({ clientX, clientY, id: uid(), comments: [], isOpen: true })
-    }))
+    })
   }
 
   const handlePinClick = pinId => () => {
-    setPins(prevPins => produce(prevPins, draftPins => {
+    updatePins(draftPins => {
       closeAllPins(draftPins)
       findPinById(draftPins, pinId).isOpen = true
-    }))
+    })
   }
 
   const handlePanelPost = pinId => commentText => {
-    setPins(prevPins => produce(prevPins, draftPins => {
+    updatePins(draftPins => {
       findPinById(draftPins, pinId).comments.push({ id: uid(), text: commentText })
-    }))
+    })
+  }
+
+  const handlePanelCancel = pinId => () => {
+    updatePins(draftPins => {
+      findPinById(draftPins, pinId).isOpen = false
+    })
   }
   
   return (
@@ -49,7 +59,16 @@ function App() {
       {pins.map(({ clientX, clientY, id, comments, isOpen }) => (
         <div key={id}>
           <Pin clientX={clientX} clientY={clientY} isActive={isOpen} onClick={handlePinClick(id)} />
-          {isOpen && <Panel clientX={clientX} clientY={clientY + 8} comments={comments} onPost={handlePanelPost(id)} />}
+
+          {isOpen && (
+            <Panel
+              clientX={clientX}
+              clientY={clientY + 8}
+              comments={comments}
+              onPost={handlePanelPost(id)}
+              onCancel={handlePanelCancel(id)}
+            />
+          )}
         </div>
       ))}
     </div>
