@@ -2,10 +2,10 @@ import classNames from 'classnames';
 import React from 'react'
 import { root, root_active } from './Pin.module.css'
 
-function Pin({ clientX, clientY, isActive }) {
+function Pin({ clientX, clientY, isActive, onClick }) {
   const handlePinClick = event => {
     event.stopPropagation()
-    console.log('conversation clicked');
+    onClick(event)
   }
 
   return (
