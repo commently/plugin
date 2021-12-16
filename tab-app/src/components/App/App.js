@@ -6,10 +6,8 @@ import Panel from '../Panel/Panel'
 import produce from 'immer'
 import classNames from 'classnames'
 
-function closeAllPins(pins) {
-  for (const draftPin of pins) {
-    draftPin.isOpen = false
-  }
+function getClosedPins(pins) {
+  return pins.map(p => ({ ...p, isOpen: false })).filter(p => p.comments.length > 0)
 }
 
 function findPinById(pins, pinId) {
@@ -32,19 +30,19 @@ function App() {
   const handleRootClick = ({ clientX, clientY }) => {
     updatePins(draftPins => {
       if (draftPins.some(p => p.isOpen)) {
-        closeAllPins(draftPins)
-        return
+        return getClosedPins(draftPins)
       }
 
-      closeAllPins(draftPins)
       draftPins.push({ clientX, clientY, id: draftPins.length + 1, comments: [], isOpen: true })
     })
   }
 
   const handlePinClick = pinId => () => {
     updatePins(draftPins => {
-      closeAllPins(draftPins)
-      findPinById(draftPins, pinId).isOpen = true
+      const closedPins = getClosedPins(draftPins)
+      findPinById(closedPins, pinId).isOpen = true
+
+      return closedPins
     })
   }
 
@@ -57,7 +55,14 @@ function App() {
 
   const handlePanelCancel = pinId => () => {
     updatePins(draftPins => {
-      findPinById(draftPins, pinId).isOpen = false
+      const draftPin = findPinById(draftPins, pinId)
+
+      if (draftPin.comments.length > 0) {
+        draftPin.isOpen = false
+        return
+      }
+
+      draftPins.splice(draftPins.indexOf(draftPin), 1)
     })
   }
   
