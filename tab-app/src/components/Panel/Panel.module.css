@@ -5,10 +5,22 @@
   border-radius: 8px;
   background-color: #FBFFFB;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  max-width: 270px;
+  width: 270px;
   display: flex;
   flex-direction: column;
+}
+.paddingContainer {
+  padding: 16px;
+}
+.comment {
+  white-space: pre-wrap;
+}
+.comment:not(:first-child) {
+  margin-top: 8px;
+}
+.divider {
+  background-color: #D4D4D4;
+  height: 1px;
 }
 .inputField {
   border: none;

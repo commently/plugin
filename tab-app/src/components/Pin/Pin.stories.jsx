@@ -6,4 +6,4 @@ export default { component: Pin };
 const Template = (args) => <Pin {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = { clientX: 50, clientY: 50 };
+Primary.args = { clientX: 50, clientY: 50, isActive: false, text: 1 };
