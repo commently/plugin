@@ -19,15 +19,38 @@ chrome.runtime.onInstalled.addListener(() => {
   })
 })
 
-chrome.action.onClicked.addListener(tab => {
-  /** @todo remove tab app on next click  */
-  chrome.scripting.insertCSS({
-    target: { tabId: tab.id },
-    files: ['tab-app/main.css']
-  })
+const tabRecord = {}
+
+function getCssInject(tab) {
+  return { target: { tabId: tab.id }, files: ['tab-app/main.css'] }
+}
+
+function addTabApp(tab) {
+  chrome.scripting.insertCSS(getCssInject(tab))
+  chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['tab-app/tab-app.js'] })
+}
+
+function removeTabApp(tab) {
+  chrome.scripting.removeCSS(getCssInject(tab))
 
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    files: ['tab-app/tab-app.js']
+    func: () => document.getElementById('commently').remove()
   })
+}
+
+chrome.action.onClicked.addListener(tab => {
+  if (tabRecord[tab.id]) {
+    removeTabApp(tab)
+    tabRecord[tab.id] = false
+  } else {
+    addTabApp(tab)
+    tabRecord[tab.id] = true
+  }
+})
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.status == 'complete' && tabRecord[tabId]) {
+    addTabApp(tab)
+  }
 })
