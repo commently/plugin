@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { uid } from 'uid'
+import React, { useEffect, useState } from 'react'
 import { root, root_active } from './App.css'
 import Pin from '../Pin/Pin'
 import Panel from '../Panel/Panel'
@@ -20,8 +19,27 @@ function findPinById(pins, pinId) {
   return pin
 }
 
+function getCurrentKey() {
+  return 'commently_' + window.location.href
+}
+
 function App() {
-  const [pins, setPins] = useState([])
+  const [pins, setPins] = useState(() => {
+    const storageValue = localStorage.getItem(getCurrentKey())
+
+    if (!storageValue) {
+      return []
+    }
+
+    return JSON.parse(storageValue)
+  })
+
+  useEffect(
+    () => {
+      localStorage.setItem(getCurrentKey(), JSON.stringify(pins))
+    },
+    [pins],
+  )
 
   function updatePins(recipe) {
     setPins(prevPins => produce(prevPins, recipe))

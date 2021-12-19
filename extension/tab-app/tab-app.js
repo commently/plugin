@@ -115,7 +115,7 @@ if (true) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"root":"Panel-module-root-1zOz2","paddingContainer":"Panel-module-paddingContainer-3gMIj","comment":"Panel-module-comment-2CBPi","divider":"Panel-module-divider-DBEly","inputField":"Panel-module-inputField-38tuT","buttonsRow":"Panel-module-buttonsRow-BsERG","button_default":"Panel-module-button_default-1wBOV","button_primary":"Panel-module-button_primary-E6CJB","button_secondary":"Panel-module-button_secondary-3pdfE"};
+module.exports = {"root":"Panel-module-root-1zOz2","paddingContainer":"Panel-module-paddingContainer-3gMIj","comment":"Panel-module-comment-2CBPi","comment__time":"Panel-module-comment__time-1lWPO","comment_text":"Panel-module-comment_text-2yiwY","divider":"Panel-module-divider-DBEly","inputField":"Panel-module-inputField-38tuT","buttonsRow":"Panel-module-buttonsRow-BsERG","button_default":"Panel-module-button_default-1wBOV","button_primary":"Panel-module-button_primary-E6CJB","button_secondary":"Panel-module-button_secondary-3pdfE"};
 
 /***/ }),
 /* 2 */
@@ -1117,11 +1117,16 @@ function Panel(_ref) {
     className: Panel_module["paddingContainer"]
   }, comments.map(function (_ref2) {
     var id = _ref2.id,
+        createdAt = _ref2.createdAt,
         text = _ref2.text;
     return /*#__PURE__*/react_default.a.createElement("div", {
       key: id,
       className: Panel_module["comment"]
-    }, text);
+    }, /*#__PURE__*/react_default.a.createElement("div", {
+      className: Panel_module["comment__time"]
+    }, new Date(createdAt).toLocaleString()), /*#__PURE__*/react_default.a.createElement("div", {
+      className: Panel_module["comment_text"]
+    }, text));
   })), /*#__PURE__*/react_default.a.createElement("div", {
     className: Panel_module["divider"]
   })), /*#__PURE__*/react_default.a.createElement("div", {
@@ -1184,12 +1189,28 @@ function findPinById(pins, pinId) {
   return pin;
 }
 
+function getCurrentKey() {
+  return 'commently_' + window.location.href;
+}
+
 function App_App() {
   var _classNames;
 
-  var _useState = Object(react["useState"])([]),
+  var _useState = Object(react["useState"])(function () {
+    var storageValue = localStorage.getItem(getCurrentKey());
+
+    if (!storageValue) {
+      return [];
+    }
+
+    return JSON.parse(storageValue);
+  }),
       pins = _useState[0],
       setPins = _useState[1];
+
+  Object(react["useEffect"])(function () {
+    localStorage.setItem(getCurrentKey(), JSON.stringify(pins));
+  }, [pins]);
 
   function updatePins(recipe) {
     setPins(function (prevPins) {
@@ -1211,6 +1232,7 @@ function App_App() {
         clientX: clientX,
         clientY: clientY,
         id: draftPins.length + 1,
+        createdAt: Date.now(),
         comments: [],
         isOpen: true
       });
@@ -1235,6 +1257,7 @@ function App_App() {
 
         comments.push({
           id: comments.length + 1,
+          createdAt: Date.now(),
           text: commentText
         });
       });
