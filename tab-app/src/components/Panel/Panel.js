@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'
-import { root, paddingContainer, comment, inputField, buttonsRow, button_default, button_primary, button_secondary, divider } from './Panel.module.css'
+import { root, paddingContainer, comment, inputField, buttonsRow, button_default, button_primary, button_secondary, divider, comment__time, comment_text } from './Panel.module.css'
 
 function Panel({ clientX, clientY, comments, onPost, onCancel }) {
   const [commentText, setCommentText] = useState('')
@@ -24,7 +24,12 @@ function Panel({ clientX, clientY, comments, onPost, onCancel }) {
       {comments.length > 0 && (
         <Fragment>
           <div className={paddingContainer}>
-            {comments.map(({ id, text }) => <div key={id} className={comment}>{text}</div>)}
+            {comments.map(({ id, timestamp, text }) => (
+              <div key={id} className={comment}>
+                <div className={comment__time}>{new Date(timestamp).toLocaleString()}</div>
+                <div className={comment_text}>{text}</div>
+              </div>
+            ))}
           </div>
 
           <div className={divider} />

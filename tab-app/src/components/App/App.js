@@ -49,7 +49,7 @@ function App() {
   const handlePanelPost = pinId => commentText => {
     updatePins(draftPins => {
       const { comments } = findPinById(draftPins, pinId)
-      comments.push({ id: comments.length + 1, text: commentText })
+      comments.push({ id: comments.length + 1, timestamp: Date.now(), text: commentText })
     })
   }
 

@@ -12,11 +12,14 @@
 .paddingContainer {
   padding: 16px;
 }
-.comment {
-  white-space: pre-wrap;
-}
 .comment:not(:first-child) {
   margin-top: 8px;
+}
+.comment__time {
+  color: #D4D4D4;
+}
+.comment_text {
+  white-space: pre-wrap;
 }
 .divider {
   background-color: #D4D4D4;
