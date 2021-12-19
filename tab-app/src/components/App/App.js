@@ -33,7 +33,7 @@ function App() {
         return getClosedPins(draftPins)
       }
 
-      draftPins.push({ clientX, clientY, id: draftPins.length + 1, comments: [], isOpen: true })
+      draftPins.push({ clientX, clientY, id: draftPins.length + 1, createdAt: Date.now(), comments: [], isOpen: true })
     })
   }
 
@@ -49,7 +49,7 @@ function App() {
   const handlePanelPost = pinId => commentText => {
     updatePins(draftPins => {
       const { comments } = findPinById(draftPins, pinId)
-      comments.push({ id: comments.length + 1, timestamp: Date.now(), text: commentText })
+      comments.push({ id: comments.length + 1, createdAt: Date.now(), text: commentText })
     })
   }
 

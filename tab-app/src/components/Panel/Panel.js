@@ -24,9 +24,9 @@ function Panel({ clientX, clientY, comments, onPost, onCancel }) {
       {comments.length > 0 && (
         <Fragment>
           <div className={paddingContainer}>
-            {comments.map(({ id, timestamp, text }) => (
+            {comments.map(({ id, createdAt, text }) => (
               <div key={id} className={comment}>
-                <div className={comment__time}>{new Date(timestamp).toLocaleString()}</div>
+                <div className={comment__time}>{new Date(createdAt).toLocaleString()}</div>
                 <div className={comment_text}>{text}</div>
               </div>
             ))}
