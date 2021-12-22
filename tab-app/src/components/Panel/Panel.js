@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'
 import { root, header, paddingContainer, comment, inputField, buttonsRow, button_default, button_primary, button_secondary, divider, comment__time, comment_text } from './Panel.module.css'
 
-function Panel({ clientX, clientY, comments, onPost, onCancel }) {
+function Panel({ clientX, clientY, comments, onPost, onCancel, onResolve }) {
   const [commentText, setCommentText] = useState('')
 
   const handleCancelClick = () => {
@@ -25,7 +25,7 @@ function Panel({ clientX, clientY, comments, onPost, onCancel }) {
         <Fragment>
           <div className={classNames(paddingContainer, header)}>
             <div>{/* spacer for now */}</div>
-            <button>Resolve</button>
+            <button onClick={onResolve}>Resolve</button>
           </div>
 
           <div className={paddingContainer}>

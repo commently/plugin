@@ -51,7 +51,15 @@ function App() {
         return getClosedPins(draftPins)
       }
 
-      draftPins.push({ clientX, clientY, id: draftPins.length + 1, createdAt: Date.now(), comments: [], isOpen: true })
+      draftPins.push({
+        clientX,
+        clientY,
+        id: draftPins.length + 1,
+        createdAt: Date.now(),
+        comments: [],
+        isOpen: true,
+        isResolved: false,
+      })
     })
   }
 
@@ -83,10 +91,16 @@ function App() {
       draftPins.splice(draftPins.indexOf(draftPin), 1)
     })
   }
+
+  const handlePanelResolve = pinId => () => {
+    updatePins(draftPins => {
+      findPinById(draftPins, pinId).isResolved = true
+    })
+  }
   
   return (
     <div onClick={handleRootClick} className={classNames(root, { [root_active]: !pins.some(p => p.isOpen) })}>
-      {pins.map(({ clientX, clientY, id, comments, isOpen }) => (
+      {pins.filter(({ isResolved }) => !isResolved).map(({ clientX, clientY, id, comments, isOpen }) => (
         <div key={id}>
           <Pin clientX={clientX} clientY={clientY} isActive={isOpen} text={id} onClick={handlePinClick(id)} />
 
@@ -97,6 +111,7 @@ function App() {
               comments={comments}
               onPost={handlePanelPost(id)}
               onCancel={handlePanelCancel(id)}
+              onResolve={handlePanelResolve(id)}
             />
           )}
         </div>
