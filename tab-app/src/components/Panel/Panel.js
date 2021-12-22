@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'
-import { root, paddingContainer, comment, inputField, buttonsRow, button_default, button_primary, button_secondary, divider, comment__time, comment_text } from './Panel.module.css'
+import { root, header, paddingContainer, comment, inputField, buttonsRow, button_default, button_primary, button_secondary, divider, comment__time, comment_text } from './Panel.module.css'
 
 function Panel({ clientX, clientY, comments, onPost, onCancel }) {
   const [commentText, setCommentText] = useState('')
@@ -23,6 +23,11 @@ function Panel({ clientX, clientY, comments, onPost, onCancel }) {
     >
       {comments.length > 0 && (
         <Fragment>
+          <div className={classNames(paddingContainer, header)}>
+            <div>{/* spacer for now */}</div>
+            <button>Resolve</button>
+          </div>
+
           <div className={paddingContainer}>
             {comments.map(({ id, createdAt, text }) => (
               <div key={id} className={comment}>

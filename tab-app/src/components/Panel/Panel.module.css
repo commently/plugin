@@ -8,6 +8,13 @@
   width: 270px;
   display: flex;
   flex-direction: column;
+  color: #0A260F;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .paddingContainer {
   padding: 16px;
