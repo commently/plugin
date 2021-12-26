@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react'
 import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'
-import { root, header, paddingContainer, comment, inputField, buttonsRow, button_default, button_primary, button_secondary, divider, comment__time, comment_text } from './Panel.module.css'
+import styles from './Panel.module.css'
+import CheckCircleRegular from '../../icons/CheckCircleRegular'
 
 function Panel({ clientX, clientY, comments, onPost, onCancel, onResolve }) {
   const [commentText, setCommentText] = useState('')
@@ -17,33 +18,35 @@ function Panel({ clientX, clientY, comments, onPost, onCancel, onResolve }) {
 
   return (
     <div
-      className={root}
+      className={styles.root}
       style={{ left: `${clientX}px`, top: `${clientY}px` }}
       onClick={event => event.stopPropagation()}
     >
       {comments.length > 0 && (
         <Fragment>
-          <div className={classNames(paddingContainer, header)}>
+          <div className={classNames(styles.paddingContainer, styles.header)}>
             <div>{/* spacer for now */}</div>
-            <button onClick={onResolve}>Resolve</button>
+            <button className={styles.resolveButton} onClick={onResolve}>
+              <CheckCircleRegular />
+            </button>
           </div>
 
-          <div className={paddingContainer}>
+          <div className={styles.paddingContainer}>
             {comments.map(({ id, createdAt, text }) => (
-              <div key={id} className={comment}>
-                <div className={comment__time}>{new Date(createdAt).toLocaleString()}</div>
-                <div className={comment_text}>{text}</div>
+              <div key={id} className={styles.comment}>
+                <div className={styles.comment__time}>{new Date(createdAt).toLocaleString()}</div>
+                <div className={styles.comment_text}>{text}</div>
               </div>
             ))}
           </div>
 
-          <div className={divider} />
+          <div className={styles.divider} />
         </Fragment>
       )}
 
-      <div className={paddingContainer}>
+      <div className={styles.paddingContainer}>
         <TextareaAutosize
-          className={inputField}
+          className={styles.inputField}
           placeholder="Add a comment"
           cacheMeasurements
           maxRows={10}
@@ -51,9 +54,14 @@ function Panel({ clientX, clientY, comments, onPost, onCancel, onResolve }) {
           onChange={event => setCommentText(event.target.value)}
         />
 
-        <div className={buttonsRow}>
-          <button className={classNames(button_default, button_secondary)} onClick={handleCancelClick}>Cancel</button>  
-          <button className={classNames(button_default, button_primary)} onClick={handlePostClick}>Post</button>  
+        <div className={styles.buttonsRow}>
+          <button className={classNames(styles.button_default, styles.button_secondary)} onClick={handleCancelClick}>
+            Cancel
+          </button> 
+
+          <button className={classNames(styles.button_default, styles.button_primary)} onClick={handlePostClick}>
+            Post
+          </button>  
         </div>
       </div>
     </div>
