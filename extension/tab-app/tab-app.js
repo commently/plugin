@@ -115,7 +115,7 @@ if (true) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"root":"Panel-module-root-1zOz2","paddingContainer":"Panel-module-paddingContainer-3gMIj","comment":"Panel-module-comment-2CBPi","comment__time":"Panel-module-comment__time-1lWPO","comment_text":"Panel-module-comment_text-2yiwY","divider":"Panel-module-divider-DBEly","inputField":"Panel-module-inputField-38tuT","buttonsRow":"Panel-module-buttonsRow-BsERG","button_default":"Panel-module-button_default-1wBOV","button_primary":"Panel-module-button_primary-E6CJB","button_secondary":"Panel-module-button_secondary-3pdfE"};
+module.exports = {"root":"Panel-module-root-1zOz2","header":"Panel-module-header-2Foif","resolveButton":"Panel-module-resolveButton-1NDLQ","paddingContainer":"Panel-module-paddingContainer-3gMIj","comment":"Panel-module-comment-2CBPi","comment__time":"Panel-module-comment__time-1lWPO","comment_text":"Panel-module-comment_text-2yiwY","divider":"Panel-module-divider-DBEly","inputField":"Panel-module-inputField-38tuT","buttonsRow":"Panel-module-buttonsRow-BsERG","button_default":"Panel-module-button_default-1wBOV","button_primary":"Panel-module-button_primary-E6CJB","button_secondary":"Panel-module-button_secondary-3pdfE"};
 
 /***/ }),
 /* 2 */
@@ -721,21 +721,6 @@ var react_default = /*#__PURE__*/__webpack_require__.n(react);
 var react_dom = __webpack_require__(6);
 var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
 
-// CONCATENATED MODULE: ./node_modules/uid/dist/index.mjs
-var IDX=256, HEX=[], SIZE=256, BUFFER;
-while (IDX--) HEX[IDX] = (IDX + 256).toString(16).substring(1);
-
-function uid(len) {
-	var i=0, tmp=(len || 11);
-	if (!BUFFER || ((IDX + tmp) > SIZE*2)) {
-		for (BUFFER='',IDX=0; i < SIZE; i++) {
-			BUFFER += HEX[Math.random() * 256 | 0];
-		}
-	}
-
-	return BUFFER.substring(IDX, IDX++ + tmp);
-}
-
 // EXTERNAL MODULE: ./src/components/App/App.css
 var App = __webpack_require__(3);
 
@@ -1077,8 +1062,33 @@ var react_textarea_autosize_browser_esm_index = /* #__PURE__ */Object(react["for
 
 // EXTERNAL MODULE: ./src/components/Panel/Panel.module.css
 var Panel_module = __webpack_require__(1);
+var Panel_module_default = /*#__PURE__*/__webpack_require__.n(Panel_module);
 
+// CONCATENATED MODULE: ./src/icons/CheckCircleRegular.js
+
+
+var CheckCircleRegular_CheckCircleRegular = function CheckCircleRegular() {
+  return /*#__PURE__*/react_default.a.createElement("svg", {
+    style: {
+      width: '16px'
+    },
+    "aria-hidden": "true",
+    focusable: "false",
+    "data-prefix": "far",
+    "data-icon": "check-circle",
+    "class": "svg-inline--fa fa-check-circle fa-w-16",
+    role: "img",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 512 512"
+  }, /*#__PURE__*/react_default.a.createElement("path", {
+    fill: "currentColor",
+    d: "M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z"
+  }));
+};
+
+/* harmony default export */ var icons_CheckCircleRegular = (CheckCircleRegular_CheckCircleRegular);
 // CONCATENATED MODULE: ./src/components/Panel/Panel.js
+
 
 
 
@@ -1089,7 +1099,8 @@ function Panel(_ref) {
       clientY = _ref.clientY,
       comments = _ref.comments,
       onPost = _ref.onPost,
-      onCancel = _ref.onCancel;
+      onCancel = _ref.onCancel,
+      onResolve = _ref.onResolve;
 
   var _useState = Object(react["useState"])(''),
       commentText = _useState[0],
@@ -1105,7 +1116,7 @@ function Panel(_ref) {
   };
 
   return /*#__PURE__*/react_default.a.createElement("div", {
-    className: Panel_module["root"],
+    className: Panel_module_default.a.root,
     style: {
       left: clientX + "px",
       top: clientY + "px"
@@ -1114,25 +1125,30 @@ function Panel(_ref) {
       return event.stopPropagation();
     }
   }, comments.length > 0 && /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("div", {
-    className: Panel_module["paddingContainer"]
+    className: classnames_default()(Panel_module_default.a.paddingContainer, Panel_module_default.a.header)
+  }, /*#__PURE__*/react_default.a.createElement("div", null), /*#__PURE__*/react_default.a.createElement("button", {
+    className: Panel_module_default.a.resolveButton,
+    onClick: onResolve
+  }, /*#__PURE__*/react_default.a.createElement(icons_CheckCircleRegular, null))), /*#__PURE__*/react_default.a.createElement("div", {
+    className: Panel_module_default.a.paddingContainer
   }, comments.map(function (_ref2) {
     var id = _ref2.id,
         createdAt = _ref2.createdAt,
         text = _ref2.text;
     return /*#__PURE__*/react_default.a.createElement("div", {
       key: id,
-      className: Panel_module["comment"]
+      className: Panel_module_default.a.comment
     }, /*#__PURE__*/react_default.a.createElement("div", {
-      className: Panel_module["comment__time"]
+      className: Panel_module_default.a.comment__time
     }, new Date(createdAt).toLocaleString()), /*#__PURE__*/react_default.a.createElement("div", {
-      className: Panel_module["comment_text"]
+      className: Panel_module_default.a.comment_text
     }, text));
   })), /*#__PURE__*/react_default.a.createElement("div", {
-    className: Panel_module["divider"]
+    className: Panel_module_default.a.divider
   })), /*#__PURE__*/react_default.a.createElement("div", {
-    className: Panel_module["paddingContainer"]
+    className: Panel_module_default.a.paddingContainer
   }, /*#__PURE__*/react_default.a.createElement(react_textarea_autosize_browser_esm, {
-    className: Panel_module["inputField"],
+    className: Panel_module_default.a.inputField,
     placeholder: "Add a comment",
     cacheMeasurements: true,
     maxRows: 10,
@@ -1141,12 +1157,12 @@ function Panel(_ref) {
       return setCommentText(event.target.value);
     }
   }), /*#__PURE__*/react_default.a.createElement("div", {
-    className: Panel_module["buttonsRow"]
+    className: Panel_module_default.a.buttonsRow
   }, /*#__PURE__*/react_default.a.createElement("button", {
-    className: classnames_default()(Panel_module["button_default"], Panel_module["button_secondary"]),
+    className: classnames_default()(Panel_module_default.a.button_default, Panel_module_default.a.button_secondary),
     onClick: handleCancelClick
   }, "Cancel"), /*#__PURE__*/react_default.a.createElement("button", {
-    className: classnames_default()(Panel_module["button_default"], Panel_module["button_primary"]),
+    className: classnames_default()(Panel_module_default.a.button_default, Panel_module_default.a.button_primary),
     onClick: handlePostClick
   }, "Post"))));
 }
@@ -1158,7 +1174,6 @@ function n(n){for(var t=arguments.length,r=Array(t>1?t-1:0),e=1;e<t;e++)r[e-1]=a
 
 // CONCATENATED MODULE: ./src/components/App/App.js
 function App_extends() { App_extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return App_extends.apply(this, arguments); }
-
 
 
 
@@ -1234,7 +1249,8 @@ function App_App() {
         id: draftPins.length + 1,
         createdAt: Date.now(),
         comments: [],
-        isOpen: true
+        isOpen: true,
+        isResolved: false
       });
     });
   };
@@ -1279,17 +1295,28 @@ function App_App() {
     };
   };
 
+  var handlePanelResolve = function handlePanelResolve(pinId) {
+    return function () {
+      updatePins(function (draftPins) {
+        findPinById(draftPins, pinId).isResolved = true;
+      });
+    };
+  };
+
   return /*#__PURE__*/react_default.a.createElement("div", {
     onClick: handleRootClick,
     className: classnames_default()(App["root"], (_classNames = {}, _classNames[App["root_active"]] = !pins.some(function (p) {
       return p.isOpen;
     }), _classNames))
-  }, pins.map(function (_ref2) {
-    var clientX = _ref2.clientX,
-        clientY = _ref2.clientY,
-        id = _ref2.id,
-        comments = _ref2.comments,
-        isOpen = _ref2.isOpen;
+  }, pins.filter(function (_ref2) {
+    var isResolved = _ref2.isResolved;
+    return !isResolved;
+  }).map(function (_ref3) {
+    var clientX = _ref3.clientX,
+        clientY = _ref3.clientY,
+        id = _ref3.id,
+        comments = _ref3.comments,
+        isOpen = _ref3.isOpen;
     return /*#__PURE__*/react_default.a.createElement("div", {
       key: id
     }, /*#__PURE__*/react_default.a.createElement(Pin_Pin, {
@@ -1303,7 +1330,8 @@ function App_App() {
       clientY: clientY + 8,
       comments: comments,
       onPost: handlePanelPost(id),
-      onCancel: handlePanelCancel(id)
+      onCancel: handlePanelCancel(id),
+      onResolve: handlePanelResolve(id)
     }));
   }));
 }
