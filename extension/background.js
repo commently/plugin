@@ -1,8 +1,4 @@
-const color = '#3aa757'
-
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.set({ color })
-
   chrome.action.disable()
 
   chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
@@ -19,38 +15,30 @@ chrome.runtime.onInstalled.addListener(() => {
   })
 })
 
-const tabRecord = {}
-
-function getCssInject(tab) {
-  return { target: { tabId: tab.id }, files: ['tab-app/main.css'] }
-}
-
-function addTabApp(tab) {
-  chrome.scripting.insertCSS(getCssInject(tab))
-  chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['tab-app/tab-app.js'] })
-}
-
-function removeTabApp(tab) {
-  chrome.scripting.removeCSS(getCssInject(tab))
-
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    func: () => document.getElementById('commently').remove()
-  })
-}
-
 chrome.action.onClicked.addListener(tab => {
-  if (tabRecord[tab.id]) {
-    removeTabApp(tab)
-    tabRecord[tab.id] = false
-  } else {
-    addTabApp(tab)
-    tabRecord[tab.id] = true
-  }
+  /** @todo send turn on event to the app */
 })
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status == 'complete' && tabRecord[tabId]) {
-    addTabApp(tab)
+chrome.tabs.onActivated.addListener((activeInfo) => {
+  console.log("onActivated ~ activeInfo", activeInfo)
+})
+
+chrome.tabs.onAttached.addListener((tabId, attachInfo) => {
+  console.log("onAttached ~ attachInfo", attachInfo)
+})
+
+chrome.tabs.onCreated.addListener((tab) => {
+  console.log("onCreated ~ tab", tab)
+})
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
+  console.log("onUpdated ~ changeInfo", changeInfo)
+
+  /** @todo check the HTTP scheme */
+  if (changeInfo.status !== 'complete') {
+    return
   }
+
+  chrome.scripting.insertCSS({ target: { tabId }, files: ['tab-app/main.css'] })
+  chrome.scripting.executeScript({ target: { tabId }, files: ['tab-app/tab-app.js'] })
 })
