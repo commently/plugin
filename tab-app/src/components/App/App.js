@@ -24,15 +24,45 @@ function getCurrentKey() {
 }
 
 function App() {
-  const [pins, setPins] = useState(() => {
-    const storageValue = localStorage.getItem(getCurrentKey())
+  const [isOn, setIsOn] = useState(false)
 
-    if (!storageValue) {
-      return []
-    }
+  const [pins, setPins] = useState([])
 
-    return JSON.parse(storageValue)
-  })
+  useEffect(
+    () => {
+      const json = localStorage.getItem(getCurrentKey())
+
+      if (!json) {
+        return []
+      }
+
+      const storagePins = JSON.parse(json)
+
+      if (storagePins.length > 0) {
+        setIsOn(true)
+      }
+      
+      setPins(storagePins)
+    },
+    [],
+  )
+
+  useEffect(
+    () => {
+      const messageListener = ({ type }) => {
+        if (type === 'toggle') {
+          setIsOn(prev => !prev)
+        }
+      }
+
+      chrome.runtime.onMessage.addListener(messageListener)
+
+      return () => {
+        chrome.runtime.onMessage.removeListener(messageListener)
+      }
+    },
+    [],
+  )
 
   useEffect(
     () => {
@@ -96,6 +126,10 @@ function App() {
     updatePins(draftPins => {
       findPinById(draftPins, pinId).isResolved = true
     })
+  }
+
+  if (isOn === false) {
+    return null
   }
   
   return (

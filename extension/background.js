@@ -16,24 +16,10 @@ chrome.runtime.onInstalled.addListener(() => {
 })
 
 chrome.action.onClicked.addListener(tab => {
-  /** @todo send turn on event to the app */
-})
-
-chrome.tabs.onActivated.addListener((activeInfo) => {
-  console.log("onActivated ~ activeInfo", activeInfo)
-})
-
-chrome.tabs.onAttached.addListener((tabId, attachInfo) => {
-  console.log("onAttached ~ attachInfo", attachInfo)
-})
-
-chrome.tabs.onCreated.addListener((tab) => {
-  console.log("onCreated ~ tab", tab)
+  chrome.tabs.sendMessage(tab.id, { type: 'toggle' })
 })
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
-  console.log("onUpdated ~ changeInfo", changeInfo)
-
   /** @todo check the HTTP scheme */
   if (changeInfo.status !== 'complete') {
     return

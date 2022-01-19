@@ -1211,18 +1211,45 @@ function getCurrentKey() {
 function App_App() {
   var _classNames;
 
-  var _useState = Object(react["useState"])(function () {
-    var storageValue = localStorage.getItem(getCurrentKey());
+  var _useState = Object(react["useState"])(false),
+      isOn = _useState[0],
+      setIsOn = _useState[1];
 
-    if (!storageValue) {
+  var _useState2 = Object(react["useState"])([]),
+      pins = _useState2[0],
+      setPins = _useState2[1];
+
+  Object(react["useEffect"])(function () {
+    var json = localStorage.getItem(getCurrentKey());
+
+    if (!json) {
       return [];
     }
 
-    return JSON.parse(storageValue);
-  }),
-      pins = _useState[0],
-      setPins = _useState[1];
+    var storagePins = JSON.parse(json);
 
+    if (storagePins.length > 0) {
+      setIsOn(true);
+    }
+
+    setPins(storagePins);
+  }, []);
+  Object(react["useEffect"])(function () {
+    var messageListener = function messageListener(_ref) {
+      var type = _ref.type;
+
+      if (type === 'toggle') {
+        setIsOn(function (prev) {
+          return !prev;
+        });
+      }
+    };
+
+    chrome.runtime.onMessage.addListener(messageListener);
+    return function () {
+      chrome.runtime.onMessage.removeListener(messageListener);
+    };
+  }, []);
   Object(react["useEffect"])(function () {
     localStorage.setItem(getCurrentKey(), JSON.stringify(pins));
   }, [pins]);
@@ -1233,9 +1260,9 @@ function App_App() {
     });
   }
 
-  var handleRootClick = function handleRootClick(_ref) {
-    var clientX = _ref.clientX,
-        clientY = _ref.clientY;
+  var handleRootClick = function handleRootClick(_ref2) {
+    var clientX = _ref2.clientX,
+        clientY = _ref2.clientY;
     updatePins(function (draftPins) {
       if (draftPins.some(function (p) {
         return p.isOpen;
@@ -1303,20 +1330,24 @@ function App_App() {
     };
   };
 
+  if (isOn === false) {
+    return null;
+  }
+
   return /*#__PURE__*/react_default.a.createElement("div", {
     onClick: handleRootClick,
     className: classnames_default()(App["root"], (_classNames = {}, _classNames[App["root_active"]] = !pins.some(function (p) {
       return p.isOpen;
     }), _classNames))
-  }, pins.filter(function (_ref2) {
-    var isResolved = _ref2.isResolved;
+  }, pins.filter(function (_ref3) {
+    var isResolved = _ref3.isResolved;
     return !isResolved;
-  }).map(function (_ref3) {
-    var clientX = _ref3.clientX,
-        clientY = _ref3.clientY,
-        id = _ref3.id,
-        comments = _ref3.comments,
-        isOpen = _ref3.isOpen;
+  }).map(function (_ref4) {
+    var clientX = _ref4.clientX,
+        clientY = _ref4.clientY,
+        id = _ref4.id,
+        comments = _ref4.comments,
+        isOpen = _ref4.isOpen;
     return /*#__PURE__*/react_default.a.createElement("div", {
       key: id
     }, /*#__PURE__*/react_default.a.createElement(Pin_Pin, {
