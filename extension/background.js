@@ -20,13 +20,18 @@ chrome.action.onClicked.addListener(tab => {
 })
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
-  /** @todo check the HTTP scheme */
   if (changeInfo.status !== 'complete') {
     return
   }
 
-  chrome.scripting.insertCSS({ target: { tabId }, files: ['tab-app/main.css'] })
-  chrome.scripting.executeScript({ target: { tabId }, files: ['tab-app/tab-app.js'] })
+  chrome.tabs.get(tabId, ({ url }) => {
+    if (!url || !url.startsWith('https')) {
+      return
+    }
+
+    chrome.scripting.insertCSS({ target: { tabId }, files: ['tab-app/main.css'] })
+    chrome.scripting.executeScript({ target: { tabId }, files: ['tab-app/tab-app.js'] })
+  })
 })
 
 chrome.runtime.onMessage.addListener(({ type, payload }, { tab }) => {
