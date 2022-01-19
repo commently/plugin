@@ -53,6 +53,8 @@ function App() {
         if (type === 'toggle') {
           setIsOn(prev => !prev)
         }
+        
+        return true
       }
 
       chrome.runtime.onMessage.addListener(messageListener)
@@ -69,6 +71,13 @@ function App() {
       localStorage.setItem(getCurrentKey(), JSON.stringify(pins))
     },
     [pins],
+  )
+
+  useEffect(
+    () => {
+      chrome.runtime.sendMessage({ type: 'status', payload: { isOn } })
+    },
+    [isOn],
   )
 
   function updatePins(recipe) {

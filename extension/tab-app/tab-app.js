@@ -1243,6 +1243,8 @@ function App_App() {
           return !prev;
         });
       }
+
+      return true;
     };
 
     chrome.runtime.onMessage.addListener(messageListener);
@@ -1253,6 +1255,14 @@ function App_App() {
   Object(react["useEffect"])(function () {
     localStorage.setItem(getCurrentKey(), JSON.stringify(pins));
   }, [pins]);
+  Object(react["useEffect"])(function () {
+    chrome.runtime.sendMessage({
+      type: 'status',
+      payload: {
+        isOn: isOn
+      }
+    });
+  }, [isOn]);
 
   function updatePins(recipe) {
     setPins(function (prevPins) {

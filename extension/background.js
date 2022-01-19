@@ -28,3 +28,19 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
   chrome.scripting.insertCSS({ target: { tabId }, files: ['tab-app/main.css'] })
   chrome.scripting.executeScript({ target: { tabId }, files: ['tab-app/tab-app.js'] })
 })
+
+chrome.runtime.onMessage.addListener(({ type, payload }, { tab }) => {
+  if (type === 'status') {
+    const tabId = tab.id
+
+    if (payload.isOn) {
+      chrome.action.setBadgeBackgroundColor({ tabId, color: '#22C55E' })
+      chrome.action.setBadgeText({ tabId, text: 'On' })
+    } else {
+      chrome.action.setBadgeBackgroundColor({ tabId, color: '#EF4444' })
+      chrome.action.setBadgeText({ tabId, text: 'Off' })
+    }
+  }
+
+  return true
+});
