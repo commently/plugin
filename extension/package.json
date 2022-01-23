@@ -2,5 +2,8 @@
   "name": "commently",
   "version": "0.0.1",
   "description": "Plugin to communicate through a web page",
-  "repository": "https://github.com/commently/plugin"
+  "repository": "https://github.com/commently/plugin",
+  "devDependencies": {
+    "@parcel/config-webextension": "^2.2.1"
+  }
 }
