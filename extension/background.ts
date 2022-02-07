@@ -16,7 +16,14 @@ chrome.runtime.onInstalled.addListener(() => {
 })
 
 chrome.browserAction.onClicked.addListener(tab => {
-  chrome.tabs.sendMessage(tab.id, { type: 'toggle' })
+  const tabId = tab.id
+
+  if (!tabId) {
+    console.warn('tab ID is undefined during the toggle');
+    return
+  }
+
+  chrome.tabs.sendMessage(tabId, { type: 'toggle' })
 })
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
@@ -36,7 +43,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
 
 chrome.runtime.onMessage.addListener(({ type, payload }, { tab }) => {
   if (type === 'status') {
-    const tabId = tab.id
+    const tabId = tab?.id
 
     if (payload.isOn) {
       chrome.browserAction.setBadgeBackgroundColor({ tabId, color: '#22C55E' })
