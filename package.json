@@ -1,11 +1,13 @@
 {
+  "name": "plugin",
+  "version": "0.0.1",
   "private": true,
-  "devDependencies": {
-    "turbo": "^1.1.2"
+  "scripts": {
+    "build": "parcel build manifest.json"
   },
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
-  "packageManager": "yarn@1.22.17"
+  "devDependencies": {
+    "@parcel/config-webextension": "^2.2.1",
+    "@types/chrome": "^0.0.178",
+    "parcel": "^2.2.1"
+  }
 }
