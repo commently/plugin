@@ -36,8 +36,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
       return
     }
 
-    chrome.tabs.insertCSS({ file: 'tab-app/main.css' })
-    chrome.tabs.executeScript({ file: 'tab-app/tab-app.js' })
+    chrome.tabs.insertCSS({ file: 'app.css' })
+    chrome.tabs.executeScript({ file: 'app.js' })
   })
 })
 

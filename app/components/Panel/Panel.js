@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'
-import styles from './Panel.module.css'
+import * as styles from './Panel.module.css'
 import CheckCircleRegular from '../../icons/CheckCircleRegular'
 
 function Panel({ clientX, clientY, comments, onPost, onCancel, onResolve }) {

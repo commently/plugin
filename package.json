@@ -1,13 +1,23 @@
 {
+  "private": true,
   "name": "plugin",
   "version": "0.0.1",
-  "private": true,
+  "source": "app/index.js",
+  "main": "dist/app.js",
   "scripts": {
-    "build": "parcel build manifest.json"
+    "build": "parcel build manifest.json",
+    "build:app": "parcel build"
   },
   "devDependencies": {
     "@parcel/config-webextension": "^2.2.1",
     "@types/chrome": "^0.0.178",
     "parcel": "^2.2.1"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "immer": "^9.0.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-textarea-autosize": "^8.3.3"
   }
 }
