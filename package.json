@@ -2,8 +2,6 @@
   "private": true,
   "name": "plugin",
   "version": "0.0.1",
-  "source": "app/index.js",
-  "main": "dist/app.js",
   "scripts": {
     "build": "parcel build manifest.json",
     "build:app": "parcel build"
