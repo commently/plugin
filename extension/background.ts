@@ -1,5 +1,5 @@
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.action.disable()
+  chrome.browserAction.disable()
 
   chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
     const rule = {
@@ -15,8 +15,15 @@ chrome.runtime.onInstalled.addListener(() => {
   })
 })
 
-chrome.action.onClicked.addListener(tab => {
-  chrome.tabs.sendMessage(tab.id, { type: 'toggle' })
+chrome.browserAction.onClicked.addListener(tab => {
+  const tabId = tab.id
+
+  if (!tabId) {
+    console.warn('tab ID is undefined during the toggle');
+    return
+  }
+
+  chrome.tabs.sendMessage(tabId, { type: 'toggle' })
 })
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
@@ -29,21 +36,21 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
       return
     }
 
-    chrome.scripting.insertCSS({ target: { tabId }, files: ['tab-app/main.css'] })
-    chrome.scripting.executeScript({ target: { tabId }, files: ['tab-app/tab-app.js'] })
+    chrome.tabs.insertCSS({ file: 'tab-app/main.css' })
+    chrome.tabs.executeScript({ file: 'tab-app/tab-app.js' })
   })
 })
 
 chrome.runtime.onMessage.addListener(({ type, payload }, { tab }) => {
   if (type === 'status') {
-    const tabId = tab.id
+    const tabId = tab?.id
 
     if (payload.isOn) {
-      chrome.action.setBadgeBackgroundColor({ tabId, color: '#22C55E' })
-      chrome.action.setBadgeText({ tabId, text: 'On' })
+      chrome.browserAction.setBadgeBackgroundColor({ tabId, color: '#22C55E' })
+      chrome.browserAction.setBadgeText({ tabId, text: 'On' })
     } else {
-      chrome.action.setBadgeBackgroundColor({ tabId, color: '#EF4444' })
-      chrome.action.setBadgeText({ tabId, text: 'Off' })
+      chrome.browserAction.setBadgeBackgroundColor({ tabId, color: '#EF4444' })
+      chrome.browserAction.setBadgeText({ tabId, text: 'Off' })
     }
   }
 

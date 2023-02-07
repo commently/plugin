@@ -2,15 +2,17 @@
   "name": "Commently Plugin",
   "description": "Plugin to communicate through a web page",
   "version": "0.1",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.ts"]
   },
-  "permissions": ["storage", "activeTab", "scripting", "declarativeContent"],
-  "host_permissions": [
+  "permissions": [
+    "storage",
+    "activeTab",
+    "declarativeContent",
     "https://*/"
   ],
-  "action": {
+  "browser_action": {
     "default_icon": {
       "16": "/images/default_icon@16w.png",
       "32": "/images/default_icon@32w.png",

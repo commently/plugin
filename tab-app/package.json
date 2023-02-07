@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "nwb build-react-component --no-demo && npm run move",
-    "move": "rm -rf ../extension/tab-app && mv umd ../extension/tab-app",
+    "move": "rm -rf ../extension/dist/tab-app && mv umd ../extension/dist/tab-app",
     "clean": "nwb clean-module",
     "prepublishOnly": "npm run build",
     "test": "nwb test-react",
